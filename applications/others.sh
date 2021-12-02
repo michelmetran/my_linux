@@ -9,7 +9,7 @@ apt-get install scrcpy -y
 
 # Gnome Tweak Tool
 apt install dconf-editor -y
-apt install gnome-tweak-tool -y
+apt install gnome-tweaks -y
 apt install ubuntu-restricted-extras -y
 apt install samba -y
 
