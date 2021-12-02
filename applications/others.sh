@@ -5,20 +5,20 @@ echo "---------------------------------------------"
 echo "# OTHERS"
 
 # Scrcpy, for Android
-apt-get install scrcpy -y
+sudo apt-get install scrcpy -y
 
 # Gnome Tweak Tool
-apt install dconf-editor -y
-apt install gnome-tweaks -y
-apt install ubuntu-restricted-extras -y
-apt install samba -y
+sudo apt install dconf-editor -y
+sudo apt install gnome-tweaks -y
+sudo apt install ubuntu-restricted-extras -y
+sudo apt install samba -y
 
 
 echo "---------------------------------------------"
 echo "# FINALIZANDO"
 
-apt-get update
-apt-get upgrade -y
-apt-get dist-upgrade -y
-apt-get autoremove -y
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get dist-upgrade -y
+sudo apt-get autoremove -y
 

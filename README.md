@@ -13,17 +13,18 @@ cd ~/Downloads \
 ### Applications
 
 *Script* to install many applications.
+PS: Not use ```sudo```
 
 ```bash
-sudo bash ~/Downloads/my_linux/applications/cloud.sh
-sudo bash ~/Downloads/my_linux/applications/codes.sh
-sudo bash ~/Downloads/my_linux/applications/communication.sh
-sudo bash ~/Downloads/my_linux/applications/geoprocessing.sh
-sudo bash ~/Downloads/my_linux/applications/internet.sh
-sudo bash ~/Downloads/my_linux/applications/maintenance.sh
-sudo bash ~/Downloads/my_linux/applications/midia.sh
-sudo bash ~/Downloads/my_linux/applications/others.sh
-sudo bash ~/Downloads/my_linux/applications/vms.sh
+bash ./applications/cloud.sh
+bash ./applications/codes.sh
+bash ./applications/communication.sh
+bash ./applications/geoprocessing.sh
+bash ./applications/internet.sh
+bash ./applications/maintenance.sh
+bash ./applications/midia.sh
+bash ./applications/others.sh
+bash ./applications/vms.sh
 ```
 
 <br>

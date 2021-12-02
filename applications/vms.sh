@@ -5,19 +5,19 @@ echo "---------------------------------------------"
 echo "# VIRTUAL MACHINE"
 
 # Virtual Box
-apt install virtualbox
-apt install virtualbox-ext-pack
-adduser $USER vboxusers
+sudo apt install virtualbox -y
+sudo apt install virtualbox-ext-pack -y
+sudo adduser $USER vboxusers
 
 # XRDP
-apt-get install xrdp
+sudo apt-get install xrdp
 
 
 echo "---------------------------------------------"
 echo "# FINALIZANDO"
 
-apt-get update
-apt-get upgrade -y
-apt-get dist-upgrade -y
-apt-get autoremove -y
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get dist-upgrade -y
+sudo apt-get autoremove -y
 
