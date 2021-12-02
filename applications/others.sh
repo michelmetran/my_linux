@@ -5,12 +5,12 @@ echo "---------------------------------------------"
 echo "# OTHERS"
 
 # Scrcpy, for Android
-read -p "Would like to install scrcpy? (y/n)? " PROMPT
+read -p "Would like to install Scrcpy? (y/n)? " PROMPT
 
 # if install is not confirmed
 if [[ $PROMPT == "Y" && $PROMPT == "y" ]]; then
+    echo "Porra!!!!!"
 	sudo apt-get install scrcpy -y
-	#exit
 fi
 
 # Gnome Tweak Tool
