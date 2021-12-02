@@ -163,9 +163,40 @@ apt-get install xrdp
 
 
 echo "---------------------------------------------"
-echo "# ANDROID"
+echo "# OTHERS"
 
-sudo apt-get install scrcpy
+# Scrcpy, for Android
+apt-get install scrcpy
+
+# Gnome Tweak Tool
+sudo apt install dconf-editor
+apt install gnome-tweak-tool
+
+
+echo "---------------------------------------------"
+echo "# CLOUD"
+
+# Dropbox
+apt update
+apt install python3-gpg
+wget -O ~/Downloads/dropbox.deb "https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb"
+apt install ~/Downloads/dropbox.deb
+
+# Google Drive
+add-apt-repository ppa:alessandro-strada/ppa
+apt update
+apt install google-drive-ocamlfuse
+mkdir ~/Cloud
+mkdir ~/Cloud/"GDrive"
+mkdir ~/Cloud/"GDrive Alumni"
+mkdir ~/Cloud/"GDrive USP"
+
+
+# OneDriver
+echo 'deb http://download.opensuse.org/repositories/home:/jstaf/xUbuntu_20.04/ /' | sudo tee /etc/apt/sources.list.d/home:jstaf.list
+curl -fsSL https://download.opensuse.org/repositories/home:jstaf/xUbuntu_20.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_jstaf.gpg > /dev/null
+apt update
+apt install onedriver
 
 
 echo "---------------------------------------------"
