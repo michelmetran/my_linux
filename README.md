@@ -16,16 +16,7 @@ cd ~/Downloads \
 PS: Not use ```sudo```
 
 ```bash
-bash ./applications/cloud.sh
-bash ./applications/codes.sh
-bash ./applications/communication.sh
-bash ./applications/geoprocessing.sh
-bash ./applications/internet.sh
-bash ./applications/maintenance.sh
-bash ./applications/midia.sh
-bash ./applications/office.sh
-bash ./applications/others.sh
-bash ./applications/vms.sh
+bash ./applications/applications.sh
 ```
 
 <br>
@@ -36,4 +27,9 @@ Files templates, to put in "Templates" folder in Ubuntu, after format PC.
 
 ```bash
 cp -a templates/. ~/Templates
+
+
+cp -a templates/. ~/.conky
+
+
 ```
