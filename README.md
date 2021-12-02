@@ -23,6 +23,7 @@ bash ./applications/geoprocessing.sh
 bash ./applications/internet.sh
 bash ./applications/maintenance.sh
 bash ./applications/midia.sh
+bash ./applications/office.sh
 bash ./applications/others.sh
 bash ./applications/vms.sh
 ```

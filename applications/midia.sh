@@ -5,32 +5,32 @@ echo "---------------------------------------------"
 echo "# MÍDIA"
 
 # Spotify
-apt-get install curl -Y
-curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | apt-key add -
-echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.list.d/spotify.list
-apt-get update
-apt-get install spotify-client -y
+sudo apt-get install curl -Y
+curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt-get update
+sudo apt-get install spotify-client -y
 
 # InkScape
-add-apt-repository ppa:inkscape.dev/stable
-apt-get update
-apt-get install inkscape -y
+sudo add-apt-repository ppa:inkscape.dev/stable
+sudo apt-get update
+sudo apt-get install inkscape -y
 
 # VLC
 snap install vlc
 
 # OBS
-apt install ffmpeg
-add-apt-repository ppa:obsproject/obs-studio
-apt-get update
-apt-get install obs-studio -y
+sudo apt install ffmpeg -y
+sudo add-apt-repository ppa:obsproject/obs-studio
+sudo apt-get update
+sudo apt-get install obs-studio -y
 
 
 echo "---------------------------------------------"
 echo "# FINALIZANDO"
 
-apt-get update
-apt-get upgrade -y
-apt-get dist-upgrade -y
-apt-get autoremove -y
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get dist-upgrade -y
+sudo apt-get autoremove -y
 
