@@ -42,7 +42,7 @@ done
 
 # Nautilus: folders first
 while true; do
-    read -p "Would like to copy template files (y/n)? " PROMPT
+    read -p "Would like to set directories-first in Nautilus (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
         gsettings set org.gtk.Settings.FileChooser sort-directories-first true;
@@ -79,7 +79,7 @@ done
 
 # Comando que minimiza os programas se clicar neles, na barra de tarefas
 while true; do
-    read -p "Would like to copy template files (y/n)? " PROMPT
+    read -p "Would like to minimize apps on click (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
         gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize';
