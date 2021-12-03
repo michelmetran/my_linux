@@ -125,15 +125,15 @@ while true; do
     read -p "Would like to install Virtual Box (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v virtualbox &> /dev/null
-	then
-		sudo apt install virtualbox -y;
-		sudo apt install virtualbox-ext-pack -y;
-		sudo adduser $USER vboxusers;
-		break;;
-	else
-		echo "VirtualBox already installed!"
-	fi
+        if ! command -v virtualbox &> /dev/null
+        then
+            sudo apt install virtualbox -y;
+            sudo apt install virtualbox-ext-pack -y;
+            sudo adduser $USER vboxusers;
+            break;;
+        else
+            echo "VirtualBox already installed!";;
+        fi
         
         [Nn]* )
         break;;
