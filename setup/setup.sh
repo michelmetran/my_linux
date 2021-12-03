@@ -136,10 +136,10 @@ while true; do
         fi
         
         [Nn]* )
-        break;
+        break;;
         
         * )
-        echo "Please answer yes or no.";
+        echo "Please answer yes or no.";;
     esac
 done
 
