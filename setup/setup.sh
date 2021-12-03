@@ -410,7 +410,6 @@ while true; do
             echo "Tor Browser already installed!";
         fi
             break;;
-        break;;
         
         [Nn]* )
         break;;
