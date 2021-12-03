@@ -11,6 +11,7 @@ tags: [python, pycharm, jupyter, package]
 #gh-badge: [follow, star, watch, fork]
 #comments: true
 #language: pt-br
+
 ---
 
 ### Java
@@ -191,30 +192,6 @@ Move
 ```bash
 sudo mv -v eng.traineddata /usr/share/tesseract-ocr/4.00/tessdata/
 ```
-
-<br>
-
-### Certificado Digital
-
-```
-opensc-tool --list-readers
-```
-
-```
-pcsc_scan
-```
-
-```
-sudo dpkg -i safe*.deb
-```
-
-Segui isso aqui!!!!!
-
-http://www.guicolandia.net/peticionamento-eletr%C3%B4nico-no-ubuntu-20-04.html
-
-https://extpose.com/ext/61522
-
-https://www.linkedin.com/in/fl%C3%A1vio-nascimento-323a42ab/
 
 ## Mídia
 

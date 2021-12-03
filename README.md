@@ -12,17 +12,40 @@ cd ~/Downloads \
 && rm -r -f my_linux \
 && git clone git@github.com:michelmetran/my_linux.git \
 && cd my_linux
-
-# Run Script
-bash ./setup/setup.sh
-bash ./setup/test.sh
 ```
 
 <br>
 
-Garbage...
+----
+
+### Applications
+
+To install may applications
 
 ```bash
-# Run Script
-bash ./setup/test.sh
+bash ./setup/applications.sh
+```
+
+<br>
+
+----
+
+### Token
+
+To install SafeSing Client, drivers, etc.
+
+```bash
+bash ./setup/token.sh
+```
+
+<br>
+
+----
+
+### Customization
+
+To customize Nautilis and others
+
+```bash
+bash ./setup/customization.sh
 ```
