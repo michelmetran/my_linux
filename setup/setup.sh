@@ -136,10 +136,10 @@ while true; do
         fi
         
         [Nn]* )
-        break;;
+        break;
         
         * )
-        echo "Please answer yes or no.";;
+        echo "Please answer yes or no.";
     esac
 done
 
@@ -149,19 +149,19 @@ while true; do
     read -p "Would like to install XRDP (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v xrdp &> /dev/null
-	then
-		sudo apt-get install xrdp -y;
-		break;;
-	else
-		echo "xrdp already installed!"
-	fi
+        if ! command -v xrdp &> /dev/null
+        then
+            sudo apt-get install xrdp -y;
+            break;
+        else
+            echo "xrdp already installed!";
+        fi
         
         [Nn]* )
-        break;;
+        break;
         
         * )
-        echo "Please answer yes or no.";;
+        echo "Please answer yes or no.";
     esac
 done
 
@@ -188,16 +188,16 @@ while true; do
 		echo "deb-src [ arch=amd64 ] https://qgis.org/ubuntu-ltr focal main" | sudo tee -a /etc/apt/sources.list;
 		sudo apt-get update;
 		sudo apt-get install qgis qgis-plugin-grass -y;
-		break;;
+		break;
 	else
-		echo "qGIS already installed!"
+		echo "qGIS already installed!";
 	fi
         
         [Nn]* )
-        break;;
+        break;
         
         * )
-        echo "Please answer yes or no.";;
+        echo "Please answer yes or no.";
     esac
 done
 
