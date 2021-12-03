@@ -130,16 +130,16 @@ while true; do
             sudo apt install virtualbox -y;
             sudo apt install virtualbox-ext-pack -y;
             sudo adduser $USER vboxusers;
-            break;;
+            break;
         else
-            echo "VirtualBox already installed!";;
+            echo "VirtualBox already installed!";
         fi
         
         [Nn]* )
         break;;
         
         * )
-        echo "Please answer yes or no.";;
+        echo "Please answer yes or no.";
     esac
 done
 
