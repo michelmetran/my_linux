@@ -144,7 +144,7 @@ while true; do
     read -p "Would like to install XRDP (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	sudo apt-get install xrdp;
+	sudo apt-get install xrdp -y;
 	break;;
         
         [Nn]* )
@@ -195,7 +195,7 @@ while true; do
     case $PROMPT in
         [Yy]* )
         wget -O ~/Downloads/google-earth.deb "https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb";
-        sudo dpkg -i google-earth.deb;
+        sudo dpkg -i ~/Downloads/google-earth.deb;
         rm ~/Downloads/google-earth.deb;					
         break;;
         
@@ -242,7 +242,7 @@ while true; do
     read -p "Would like to install InkScape (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-        sudo add-apt-repository ppa:inkscape.dev/stable;
+        sudo add-apt-repository ppa:inkscape.dev/stable -y;
         sudo apt-get update;
         sudo apt-get install inkscape -y;
         break;;
@@ -282,7 +282,7 @@ while true; do
     case $PROMPT in
         [Yy]* )
         sudo apt install ffmpeg -y;
-        sudo add-apt-repository ppa:obsproject/obs-studio;
+        sudo add-apt-repository ppa:obsproject/obs-studio -y;
         sudo apt-get update;
         sudo apt-get install obs-studio -y;
         break;;
@@ -351,8 +351,8 @@ while true; do
     read -p "Would like to install Tor (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-        sudo apt install tor;
-        sudo apt install torbrowser-launcher;
+        sudo apt install tor -y;
+        sudo apt install torbrowser-launcher -y;
         break;;
         
         [Nn]* )
@@ -370,7 +370,7 @@ while true; do
     read -p "Would like to install qTorrent (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-        sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable;
+        sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable -y;
         sudo apt update;
         sudo apt install qbittorrent -y;
         break;;
@@ -413,7 +413,7 @@ while true; do
     case $PROMPT in
         [Yy]* )
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9;
-        sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/';
+        sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' -y;
         sudo apt update;
         sudo apt install r-base -y;
         break;;
@@ -534,7 +534,7 @@ while true; do
     read -p "Would like to install Chromedriver (y/n)? " PROMPT
     case $PROMPT in
     	[Yy]* )
-        sudo apt-get install chromium-chromedriver;
+        sudo apt-get install chromium-chromedriver -y;
         break;;
         
         [Nn]* )
@@ -557,7 +557,7 @@ while true; do
     read -p "Would like to install DropBox (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-        sudo apt install telegram-desktop;
+        sudo apt install telegram-desktop -y;
         break;;
         
         [Nn]* )
@@ -640,7 +640,7 @@ while true; do
         wget -q -O - https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add -;
         echo "deb https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skypeforlinux.list;
         sudo apt-get update;
-        sudo apt-get install skypeforlinux;
+        sudo apt-get install skypeforlinux -y;
         break;;
         
         [Nn]* )
@@ -706,7 +706,7 @@ while true; do
     read -p "Would like to install Google Driver (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* ) 
-        sudo add-apt-repository ppa:alessandro-strada/ppa;
+        sudo add-apt-repository ppa:alessandro-strada/ppa -y;
         sudo apt update;
         sudo apt install google-drive-ocamlfuse -y;
         mkdir ~/Cloud;
@@ -737,7 +737,7 @@ while true; do
         [Yy]* ) 
         sudo apt-get install conky -y;
         sudo apt-get install conky-all -y;
-        sudo add-apt-repository ppa:tomtomtom/conky-manager;
+        sudo add-apt-repository ppa:tomtomtom/conky-manager -y;
         sudo apt-get update;
         sudo apt-get install conky-manager -y;
         cp -a configs/conky ~/.conky;
@@ -759,7 +759,7 @@ while true; do
     case $PROMPT in
         [Yy]* ) 
         wget -O ~/Downloads/team-viewer.deb "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb";
-        sudo apt install ~/Downloads/team-viewer.deb;
+        sudo apt install ~/Downloads/team-viewer.deb -y;
         rm ~/Downloads/team-viewer.deb;                
         break;;
         
@@ -777,7 +777,7 @@ while true; do
     read -p "Would like to install Shutter (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* ) 
-        sudo add-apt-repository ppa:shutter/ppa;
+        sudo add-apt-repository ppa:shutter/ppa -y;
         sudo apt-get update;
         sudo apt-get install shutter -y;
         break;;
@@ -797,9 +797,10 @@ while true; do
     read -p "Would like to install AppImage (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* ) 
-        sudo add-apt-repository ppa:appimagelauncher-team/stable;
+        sudo add-apt-repository ppa:appimagelauncher-team/stable -y;
         sudo apt-get update;
         sudo apt-get install appimagelauncher -y;
+        #mkdir ~/Documents;
         break;;
         
         [Nn]* )
