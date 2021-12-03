@@ -130,16 +130,16 @@ while true; do
             sudo apt install virtualbox -y;
             sudo apt install virtualbox-ext-pack -y;
             sudo adduser $USER vboxusers;
-            break;
         else
             echo "VirtualBox already installed!";
         fi
+            break;;
         
         [Nn]* )
         break;;
         
         * )
-        echo "Please answer yes or no.";
+        echo "Please answer yes or no.";;
     esac
 done
 
@@ -152,16 +152,16 @@ while true; do
         if ! command -v xrdp &> /dev/null
         then
             sudo apt-get install xrdp -y;
-            break;
         else
             echo "xrdp already installed!";
         fi
-        
+            break;;
+            
         [Nn]* )
-        break;
+        break;;
         
         * )
-        echo "Please answer yes or no.";
+        echo "Please answer yes or no.";;
     esac
 done
 
@@ -178,28 +178,29 @@ while true; do
     read -p "Would like to install QGIS (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v qgis &> /dev/null
-	then
-		sudo apt install gnupg software-properties-common -y;
-		wget -qO - https://qgis.org/downloads/qgis-2021.gpg.key | sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/qgis-archive.gpg --import;
-		sudo chmod a+r /etc/apt/trusted.gpg.d/qgis-archive.gpg;
-		echo "# QGIS" | sudo tee -a /etc/apt/sources.list;
-		echo "deb [ arch=amd64 ] https://qgis.org/ubuntu-ltr focal main" | sudo tee -a /etc/apt/sources.list;
-		echo "deb-src [ arch=amd64 ] https://qgis.org/ubuntu-ltr focal main" | sudo tee -a /etc/apt/sources.list;
-		sudo apt-get update;
-		sudo apt-get install qgis qgis-plugin-grass -y;
-		break;
-	else
-		echo "qGIS already installed!";
-	fi
-        
+        if ! command -v qgis &> /dev/null
+        then
+            sudo apt install gnupg software-properties-common -y;
+            wget -qO - https://qgis.org/downloads/qgis-2021.gpg.key | sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/qgis-archive.gpg --import;
+            sudo chmod a+r /etc/apt/trusted.gpg.d/qgis-archive.gpg;
+            echo "# QGIS" | sudo tee -a /etc/apt/sources.list;
+            echo "deb [ arch=amd64 ] https://qgis.org/ubuntu-ltr focal main" | sudo tee -a /etc/apt/sources.list;
+            echo "deb-src [ arch=amd64 ] https://qgis.org/ubuntu-ltr focal main" | sudo tee -a /etc/apt/sources.list;
+            sudo apt-get update;
+            sudo apt-get install qgis qgis-plugin-grass -y;
+        else
+            echo "qGIS already installed!";
+        fi
+            break;;
+            
         [Nn]* )
-        break;
+        break;;
         
         * )
-        echo "Please answer yes or no.";
+        echo "Please answer yes or no.";;
     esac
 done
+
 
 
 # Google Earth
@@ -209,11 +210,16 @@ while true; do
     read -p "Would like to install Google Earth (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-        wget -O ~/Downloads/google-earth.deb "https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb";
-        sudo dpkg -i ~/Downloads/google-earth.deb;
-        rm ~/Downloads/google-earth.deb;					
-        break;;
-        
+        if ! command -v google-earth-pro &> /dev/null
+        then
+            wget -O ~/Downloads/google-earth.deb "https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb";
+            sudo dpkg -i ~/Downloads/google-earth.deb;
+            rm ~/Downloads/google-earth.deb;        
+        else
+            echo "Google Earth already installed!";
+        fi
+            break;;
+
         [Nn]* )
         break;;
         
@@ -234,18 +240,18 @@ while true; do
     read -p "Would like to install Spotify (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v spotify &> /dev/null
-	then
-		sudo apt-get install curl -Y;
-		curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -;
-		echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list;
-		sudo apt-get update;
-		sudo apt-get install spotify-client -y;
-		break;;
-	else
-		echo "Spotify already installed!"
-	fi
-        
+        if ! command -v spotify &> /dev/null
+        then
+            sudo apt-get install curl -Y;
+            curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -;
+            echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list;
+            sudo apt-get update;
+            sudo apt-get install spotify-client -y;
+        else
+            echo "Spotify already installed!";
+        fi
+            break;;
+
         [Nn]* )
         break;;
         
@@ -262,15 +268,15 @@ while true; do
     read -p "Would like to install InkScape (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v inkscape &> /dev/null
-	then
-		sudo add-apt-repository ppa:inkscape.dev/stable -y;
-		sudo apt-get update;
-		sudo apt-get install inkscape -y;
-		break;;
-	else
-		echo "inkscape already installed!"
-	fi                
+        if ! command -v inkscape &> /dev/null
+        then
+            sudo add-apt-repository ppa:inkscape.dev/stable -y;
+            sudo apt-get update;
+            sudo apt-get install inkscape -y;
+        else
+            echo "inkscape already installed!";
+        fi
+            break;;
         
         [Nn]* )
         break;;
@@ -287,13 +293,13 @@ while true; do
     read -p "Would like to install VLC (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v vlc &> /dev/null
-	then
-		snap install vlc;
-		break;;
-	else
-		echo "Vlc already installed!"
-	fi        
+        if ! command -v vlc &> /dev/null
+        then
+            snap install vlc;
+        else
+            echo "VLC already installed!";
+        fi        
+            break;;
         
         [Nn]* )
         break;;
@@ -311,18 +317,17 @@ while true; do
     read -p "Would like to install OBS Studio (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v obs &> /dev/null
-	then
-		sudo apt install ffmpeg -y;
-		sudo add-apt-repository ppa:obsproject/obs-studio -y;
-		sudo apt-get update;
-		sudo apt-get install obs-studio -y;
-		break;;
-        
-	else
-		echo "Obs already installed!"
-	fi	        
-
+        if ! command -v obs &> /dev/null
+        then
+            sudo apt install ffmpeg -y;
+            sudo add-apt-repository ppa:obsproject/obs-studio -y;
+            sudo apt-get update;
+            sudo apt-get install obs-studio -y;
+        else
+            echo "Obs already installed!";
+        fi
+            break;;
+            
         [Nn]* )
         break;;
         
@@ -343,18 +348,17 @@ while true; do
     read -p "Would like to install Brave (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v brave-browser &> /dev/null
-	then
-		sudo apt install apt-transport-https curl -y;
-		curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg;
-		echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list;
-		sudo apt update;
-		sudo apt install brave-browser -y;
-		break;;
-        
-	else
-		echo "Brave Browser already installed!"
-	fi        
+        if ! command -v brave-browser &> /dev/null
+        then
+            sudo apt install apt-transport-https curl -y;
+            curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg;
+            echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list;
+            sudo apt update;
+            sudo apt install brave-browser -y;            
+        else
+            echo "Brave Browser already installed!";
+        fi        
+            break;;
         
         [Nn]* )
         break;;
@@ -371,10 +375,15 @@ while true; do
     read -p "Would like to install Chrome (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-        wget -O ~/Downloads/chrome.deb "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb";
-        sudo apt install ~/Downloads/chrome.deb;
-        rm ~/Downloads/chrome.deb;				
-        break;;
+        if ! command -v google-chrome &> /dev/null
+        then        
+            wget -O ~/Downloads/chrome.deb "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb";
+            sudo apt install ~/Downloads/chrome.deb;
+            rm ~/Downloads/chrome.deb;        
+        else
+            echo "Google Chrome already installed!";
+        fi        
+            break;;
         
         [Nn]* )
         break;;
@@ -393,8 +402,14 @@ while true; do
     read -p "Would like to install Tor (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-        sudo apt install tor -y;
-        sudo apt install torbrowser-launcher -y;
+        if ! command -v torbrowser-launcher &> /dev/null
+        then
+            sudo apt install tor -y;
+            sudo apt install torbrowser-launcher -y;
+        else
+            echo "Tor Browser already installed!";
+        fi
+            break;;
         break;;
         
         [Nn]* )
@@ -412,15 +427,15 @@ while true; do
     read -p "Would like to install qTorrent (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v qbittorrent &> /dev/null
-	then
-		sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable -y;
-		sudo apt update;
-		sudo apt install qbittorrent -y;
-		break;;
-	else
-		echo "qbittorrent already installed!"
-	fi
+        if ! command -v qbittorrent &> /dev/null
+        then
+            sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable -y;
+            sudo apt update;
+            sudo apt install qbittorrent -y;
+        else
+            echo "qbittorrent already installed!";
+        fi
+            break;;
         
         [Nn]* )
         break;;
@@ -459,17 +474,17 @@ while true; do
     read -p "Would like to install R (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v R &> /dev/null
-	then
-		sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9;
-		sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' -y;
-		sudo apt update;
-		sudo apt install r-base -y;
-		break;;        
-	else
-		echo "R already installed!"
-	fi
-
+        if ! command -v R &> /dev/null
+        then
+            sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9;
+            sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' -y;
+            sudo apt update;
+            sudo apt install r-base -y;
+        else
+            echo "R already installed!";
+        fi
+            break;;        
+            
         [Nn]* )
         break;;
         
@@ -486,17 +501,17 @@ while true; do
     read -p "Would like to install R Studio (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v rstudio &> /dev/null
-	then
-		sudo apt-get install gdebi-core -y;
-		wget -O ~/Downloads/rstudio.deb 'https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2021.09.1-372-amd64.deb';
-		sudo gdebi ~/Downloads/rstudio.deb;
-		rm ~/Downloads/rstudio.deb;
-		break;;
-	else
-		echo "R Studio already installed!"
-	fi
-        
+        if ! command -v rstudio &> /dev/null
+        then
+            sudo apt-get install gdebi-core -y;
+            wget -O ~/Downloads/rstudio.deb 'https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2021.09.1-372-amd64.deb';
+            sudo gdebi ~/Downloads/rstudio.deb;
+            rm ~/Downloads/rstudio.deb;
+        else
+            echo "R Studio already installed!";
+        fi
+            break;;
+
         [Nn]* )
         break;;
         
@@ -511,16 +526,16 @@ while true; do
     read -p "Would like to install VsCode (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v code &> /dev/null
-	then
-		wget -O ~/Downloads/vscode.deb "https://go.microsoft.com/fwlink/?LinkID=760868";
-		sudo apt install ~/Downloads/vscode.deb -y;
-		rm ~/Downloads/vscode.deb;
-		break;;
-	else
-		echo "VsCode already installed!"
-	fi      
-		
+        if ! command -v code &> /dev/null
+        then
+            wget -O ~/Downloads/vscode.deb "https://go.microsoft.com/fwlink/?LinkID=760868";
+            sudo apt install ~/Downloads/vscode.deb -y;
+            rm ~/Downloads/vscode.deb;
+        else
+            echo "VsCode already installed!";
+        fi      
+            break;;
+            
         [Nn]* )
         break;;
         
@@ -535,15 +550,15 @@ while true; do
     read -p "Would like to install Heroku (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v heroku &> /dev/null
-	then
-		snap install --classic heroku;
-		heroku login;
-		break;;
-	else
-		echo "Heroku already installed!"
-	fi
-		        
+        if ! command -v heroku &> /dev/null
+        then
+            snap install --classic heroku;
+            heroku login;
+        else
+            echo "Heroku already installed!";
+        fi
+            break;;
+            
         [Nn]* )
         break;;
         
@@ -580,12 +595,17 @@ while true; do
     read -p "Would like to install GeckoDriver (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-        wget -O ~/Downloads/geckodriver.tar.gz "https://github.com/mozilla/geckodriver/releases/download/v0.29.1/geckodriver-v0.29.1-linux64.tar.gz";
-        sudo sh -c 'tar -x geckodriver -zf geckodriver.tar.gz -O > /usr/bin/geckodriver';
-        sudo chmod +x /usr/bin/geckodriver;
-        rm ~/Downloads/geckodriver.tar.gz;
-        break;;
-        
+        if ! command -v geckodriver &> /dev/null
+        then
+            wget -O ~/Downloads/geckodriver.tar.gz "https://github.com/mozilla/geckodriver/releases/download/v0.29.1/geckodriver-v0.29.1-linux64.tar.gz";
+            sudo sh -c 'tar -x geckodriver -zf geckodriver.tar.gz -O > /usr/bin/geckodriver';
+            sudo chmod +x /usr/bin/geckodriver;
+            rm ~/Downloads/geckodriver.tar.gz;
+        else
+            echo "Geckodriver already installed!";
+        fi
+            break;;
+       
         [Nn]* )
         break;;
         
@@ -624,14 +644,14 @@ while true; do
     read -p "Would like to install Telegram (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v telegram-desktop &> /dev/null
-	then
-		sudo apt install telegram-desktop -y;
-		break;;				
-	else
-		echo "Telegram-Desktop already installed!"
-	fi       
-		
+        if ! command -v telegram-desktop &> /dev/null
+        then
+            sudo apt install telegram-desktop -y;
+        else
+            echo "Telegram-Desktop already installed!";
+        fi       
+            break;;
+            
         [Nn]* )
         break;;
         
@@ -647,16 +667,16 @@ while true; do
     read -p "Would like to install Zoom (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v zoom &> /dev/null
-	then
-		wget -O ~/Downloads/zoom.deb "https://zoom.us/client/latest/zoom_amd64.deb";
-		sudo apt install ~/Downloads/zoom.deb -y;
-		rm ~/Downloads/zoom.deb;
-		break;;        				
-	else
-		echo "Zoom already installed!"
-	fi        
-        
+        if ! command -v zoom &> /dev/null
+        then
+            wget -O ~/Downloads/zoom.deb "https://zoom.us/client/latest/zoom_amd64.deb";
+            sudo apt install ~/Downloads/zoom.deb -y;
+            rm ~/Downloads/zoom.deb;
+        else
+            echo "Zoom already installed!";
+        fi        
+            break;;
+            
         [Nn]* )
         break;;
         
@@ -672,15 +692,15 @@ while true; do
     read -p "Would like to install Teams (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v teams &> /dev/null
-	then
-		wget -O ~/Downloads/teams.deb "https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x416&culture=pt-br&country=BR";
-		sudo apt install ~/Downloads/teams.deb -y;
-		rm ~/Downloads/teams.deb;
-		break;;        				
-	else
-		echo "Teams already installed!"
-	fi
+        if ! command -v teams &> /dev/null
+        then
+            wget -O ~/Downloads/teams.deb "https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x416&culture=pt-br&country=BR";
+            sudo apt install ~/Downloads/teams.deb -y;
+            rm ~/Downloads/teams.deb;
+        else
+            echo "Teams already installed!";
+        fi
+            break;;
         
         [Nn]* )
         break;;
@@ -697,16 +717,17 @@ while true; do
     read -p "Would like to install Discord (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v discord &> /dev/null
-	then
-	        wget -O ~/Downloads/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb";
-	        sudo apt install ~/Downloads/discord.deb -y;
-	        rm ~/Downloads/discord.deb;        
-	        break;;
-	else
-		echo "Discord already installed!"
-	fi        
-        
+        if ! command -v discord &> /dev/null
+        then
+            wget -O ~/Downloads/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb";
+            sudo apt install ~/Downloads/discord.deb -y;
+            rm ~/Downloads/discord.deb;
+
+        else
+            echo "Discord already installed!";
+        fi        
+            break;;
+                
         [Nn]* )
         break;;
         
@@ -740,8 +761,6 @@ done
 
 
 
-
-
 echo "---------------------------------------------"
 echo "# CLOUD"
 echo " "
@@ -752,18 +771,17 @@ while true; do
     read -p "Would like to install DropBox (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v dropbox &> /dev/null
-	then        
-		sudo apt update;
-		sudo apt install python3-gpg -y;
-		wget -O ~/Downloads/dropbox.deb "https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb";
-		sudo apt install ~/Downloads/dropbox.deb;
-		rm ~/Downloads/dropbox.deb;                
-		break;;
-
-	else
-		echo "Dropbox already installed!"
-	fi
+        if ! command -v dropbox &> /dev/null
+        then        
+            sudo apt update;
+            sudo apt install python3-gpg -y;
+            wget -O ~/Downloads/dropbox.deb "https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb";
+            sudo apt install ~/Downloads/dropbox.deb;
+            rm ~/Downloads/dropbox.deb;
+        else
+            echo "Dropbox already installed!";
+        fi
+            break;;
         
         [Nn]* )
         break;;
@@ -779,17 +797,17 @@ while true; do
     read -p "Would like to install OneDriver (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )        
-	if ! command -v onedriver &> /dev/null
-	then        
-		echo 'deb http://download.opensuse.org/repositories/home:/jstaf/xUbuntu_20.04/ /' | sudo tee /etc/apt/sources.list.d/home:jstaf.list;
-		curl -fsSL https://download.opensuse.org/repositories/home:jstaf/xUbuntu_20.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_jstaf.gpg > /dev/null;
-		sudo apt update;
-		sudo apt install onedriver -y;
-		break;;
-	else
-		echo "Onedriver already installed!"
-	fi
-	        
+        if ! command -v onedriver &> /dev/null
+        then        
+            echo 'deb http://download.opensuse.org/repositories/home:/jstaf/xUbuntu_20.04/ /' | sudo tee /etc/apt/sources.list.d/home:jstaf.list;
+            curl -fsSL https://download.opensuse.org/repositories/home:jstaf/xUbuntu_20.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_jstaf.gpg > /dev/null;
+            sudo apt update;
+            sudo apt install onedriver -y;
+        else
+            echo "Onedriver already installed!"
+        fi
+            break;;
+            
         [Nn]* )
         break;;
         
@@ -875,16 +893,16 @@ while true; do
     read -p "Would like to install Shutter (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v shutter &> /dev/null
-	then        
-		sudo add-apt-repository ppa:shutter/ppa -y;
-		sudo apt-get update;
-		sudo apt-get install shutter -y;
-		break;;
-	else
-		echo "Shutter already installed!"
-	fi	        
-        
+        if ! command -v shutter &> /dev/null
+        then        
+            sudo add-apt-repository ppa:shutter/ppa -y;
+            sudo apt-get update;
+            sudo apt-get install shutter -y;
+        else
+            echo "Shutter already installed!";
+        fi	        
+            break;;
+            
         [Nn]* )
         break;;
         
@@ -920,15 +938,14 @@ while true; do
     read -p "Would like to install Caffeine (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v caffeine &> /dev/null
-	then
-		sudo apt-get update;
-		sudo apt-get install caffeine -y;
-		break;;
-        		
-	else
-		echo "Caffeine already installed!"    
-	fi
+        if ! command -v caffeine &> /dev/null
+        then
+            sudo apt-get update;
+            sudo apt-get install caffeine -y;
+        else
+            echo "Caffeine already installed!";
+        fi
+            break;;
 
         [Nn]* )
         break;;
@@ -944,15 +961,16 @@ while true; do
     read -p "Would like to install Gparted (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v gparted &> /dev/null
-	then
-		sudo apt-get update;
-		sudo apt-get install gparted -y;
-		break;;        		
-	else
-		echo "Gparted already installed!"    
-	fi
-        
+        if ! command -v gparted &> /dev/null
+        then
+            sudo apt-get update;
+            sudo apt-get install gparted -y;
+
+        else
+            echo "Gparted already installed!";
+        fi
+            break;;        		
+            
         [Nn]* )
         break;;
         
@@ -968,15 +986,15 @@ while true; do
     read -p "Would like to install NeoFetch (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )        
-	if ! command -v neofetch &> /dev/null
-	then
-		sudo apt-get update;
-		sudo apt install neofetch -y;
-		break;;
-	else
-		echo "Neofetch already installed!"    
-	fi	        
-
+        if ! command -v neofetch &> /dev/null
+        then
+            sudo apt-get update;
+            sudo apt install neofetch -y;
+        else
+            echo "Neofetch already installed!";
+        fi	        
+            break;;
+        
         [Nn]* )
         break;;
         
@@ -996,13 +1014,13 @@ while true; do
     read -p "Would like to install Samba (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v samba &> /dev/null
-	then
-		sudo apt install samba -y;
-		break;;
-	else
-		echo "Samba already installed!"    
-	fi	        
+        if ! command -v samba &> /dev/null
+        then
+            sudo apt install samba -y;
+        else
+            echo "Samba already installed!";
+        fi	        
+            break;;
         
         [Nn]* )
         break;;
@@ -1022,14 +1040,14 @@ while true; do
     read -p "Would like to install Scrcpy (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v scrcpy &> /dev/null
-	then
-	        sudo apt-get install scrcpy -y;
+        if ! command -v scrcpy &> /dev/null
+        then
+            sudo apt-get install scrcpy -y;
+        else
+            echo "Scrcpy already installed!";
+        fi                
 	        break;;
-	else
-		echo "Scrcpy already installed!"    
-	fi                
-        
+            
         [Nn]* )
         break;;
         
@@ -1044,13 +1062,13 @@ while true; do
     read -p "Would like to install dconf-editor (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v dconf-editor &> /dev/null
-	then
-		sudo apt install dconf-editor -y;
-		break;;
-	else
-		echo "dconf-editor already installed!"    
-	fi
+        if ! command -v dconf-editor &> /dev/null
+        then
+            sudo apt install dconf-editor -y;
+        else
+            echo "dconf-editor already installed!";
+        fi
+            break;;
         
         [Nn]* )
         break;;
@@ -1066,14 +1084,14 @@ while true; do
     read -p "Would like to install Gnome Tweak (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-	if ! command -v gnome-tweaks &> /dev/null
-	then
-		sudo apt install gnome-tweaks -y;
-		break;;
-	else
-		echo "Gnome-Tweaks already installed!"    
-	fi
-        
+        if ! command -v gnome-tweaks &> /dev/null
+        then
+            sudo apt install gnome-tweaks -y;
+        else
+            echo "Gnome-Tweaks already installed!";
+        fi
+            break;;
+            
         [Nn]* )
         break;;
         
