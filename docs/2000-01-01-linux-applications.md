@@ -2,7 +2,6 @@
 title: "Apps"
 excerpt_separator: "<!--more-->"
 tags: [python, pycharm, jupyter, package]
-
 #layout: post
 #subtitle: Exercícios e Referências
 #thumbnail-img: /assets/img/posts/jupyter_icon.png
@@ -12,11 +11,7 @@ tags: [python, pycharm, jupyter, package]
 #gh-badge: [follow, star, watch, fork]
 #comments: true
 #language: pt-br
-
 ---
-
-
-
 
 ### Java
 
@@ -44,11 +39,6 @@ sudo apt install ./jdk*.deb
 
 https://linuxconfig.org/oracle-java-installation-on-ubuntu-20-04-focal-fossa-linux
 
-
-
-
-
-
 ## Video
 
 ### Kdenlive
@@ -74,8 +64,6 @@ sudo apt install mesa
 ```
 
 https://itsfoss.com/install-mesa-ubuntu/#comments
-
-
 
 <br>
 
@@ -230,10 +218,6 @@ https://www.linkedin.com/in/fl%C3%A1vio-nascimento-323a42ab/
 
 ## Mídia
 
-
-
-
-
 ### Kodi
 
 ```bash
@@ -267,7 +251,6 @@ sudo dpkg-reconfigure libdvd-pkg
 <br>
 
 ## Geoprocessamento
-
 
 <br>
 
@@ -364,14 +347,7 @@ sudo apt-get install aptitude
 aptitude -F' * %p -> %d ' --no-gui --disable-columns search '?and(~i,!?section(libs), !?section(kernel), !?section(devel))'
 ```
 
-
-
-
-
 ## Códigos
-
-
-
 
 ### VIM
 
@@ -380,8 +356,6 @@ Instalei o VIM seguindo https://www.simplified.guide/ubuntu/install-vim
 Sair do VIM é ESC e :qw
 
 https://stackoverflow.com/questions/11828270/how-do-i-exit-the-vim-editor
-
-
 
 <br>
 
@@ -463,7 +437,7 @@ https://askubuntu.com/questions/942488/xampp-apache-web-server-stopped-ubuntu
 ### NPM
 
 ```bash
-# 
+#
 sudo apt install npm
 ```
 
@@ -473,5 +447,3 @@ npm install --save react@16.8.6 react-dom@16.8.6 react-scripts@3.0.1
 ```
 
 <br>
-
-

@@ -620,8 +620,13 @@ while true; do
     read -p "Would like to install Chromedriver (y/n)? " PROMPT
     case $PROMPT in
     	[Yy]* )
-        sudo apt-get install chromium-chromedriver -y;
-        break;;
+        if ! command -v chromedriver &> /dev/null
+        then
+            sudo apt-get install chromium-chromedriver -y;
+        else
+            echo "Chromedriver already installed!";
+        fi
+            break;;        
         
         [Nn]* )
         break;;
@@ -721,7 +726,6 @@ while true; do
             wget -O ~/Downloads/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb";
             sudo apt install ~/Downloads/discord.deb -y;
             rm ~/Downloads/discord.deb;
-
         else
             echo "Discord already installed!";
         fi        
@@ -736,20 +740,24 @@ while true; do
 done
 
 
-
 # Skype
 # https://www.edivaldobrito.com.br/versao-mais-recente-skype-no-linux/
 while true; do
-    read -p "Would like to install Discord (y/n)? " PROMPT
+    read -p "Would like to install Skype (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-        sudo apt install apt-transport-https -y;
-        wget -q -O - https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add -;
-        echo "deb https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skypeforlinux.list;
-        sudo apt-get update;
-        sudo apt-get install skypeforlinux -y;
-        break;;
-        
+        if ! command -v skypeforlinux &> /dev/null
+        then
+            sudo apt install apt-transport-https -y;
+            wget -q -O - https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add -;
+            echo "deb https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skypeforlinux.list;
+            sudo apt-get update;
+            sudo apt-get install skypeforlinux -y;
+        else
+            echo "Skype already installed!";
+        fi        
+            break;;
+
         [Nn]* )
         break;;
         
@@ -820,15 +828,20 @@ done
 while true; do
     read -p "Would like to install Google Driver (y/n)? " PROMPT
     case $PROMPT in
-        [Yy]* ) 
-        sudo add-apt-repository ppa:alessandro-strada/ppa -y;
-        sudo apt update;
-        sudo apt install google-drive-ocamlfuse -y;
-        mkdir ~/Cloud;
-        mkdir ~/Cloud/"GDrive";
-        mkdir ~/Cloud/"GDrive Alumni";
-        mkdir ~/Cloud/"GDrive USP";	
-        break;;
+        [Yy]* )
+        if ! command -v google-drive-ocamlfuse &> /dev/null
+        then
+            sudo add-apt-repository ppa:alessandro-strada/ppa -y;
+            sudo apt update;
+            sudo apt install google-drive-ocamlfuse -y;
+            mkdir ~/Cloud;
+            mkdir ~/Cloud/"GDrive";
+            mkdir ~/Cloud/"GDrive Alumni";
+            mkdir ~/Cloud/"GDrive USP";
+        else
+            echo "Google Drive ocamlfuse already installed!";
+        fi
+            break;;
         
         [Nn]* )
         break;;
@@ -848,16 +861,21 @@ echo " "
 # https://vitux.com/how-to-install-conky-system-monitor-and-conky-manager-on-debian-10/
 while true; do
     read -p "Would like to install Conky (y/n)? " PROMPT
-    case $PROMPT in
+    case $PROMPT in    
         [Yy]* ) 
-        sudo apt-get install conky -y;
-        sudo apt-get install conky-all -y;
-        sudo add-apt-repository ppa:tomtomtom/conky-manager -y;
-        sudo apt-get update;
-        sudo apt-get install conky-manager -y;
-        cp -a configs/conky ~/.conky;
-        break;;
-        
+        if ! command -v conky &> /dev/null
+        then
+            sudo apt-get install conky -y;
+            sudo apt-get install conky-all -y;
+            sudo add-apt-repository ppa:tomtomtom/conky-manager -y;
+            sudo apt-get update;
+            sudo apt-get install conky-manager -y;
+            cp -a configs/conky ~/.conky;
+        else
+            echo "Conky already installed!";
+        fi
+            break;;
+
         [Nn]* )
         break;;
         
@@ -873,10 +891,15 @@ while true; do
     read -p "Would like to install TeamViewer (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* ) 
-        wget -O ~/Downloads/team-viewer.deb "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb";
-        sudo apt install ~/Downloads/team-viewer.deb -y;
-        rm ~/Downloads/team-viewer.deb;                
-        break;;
+        if ! command -v teamviewer &> /dev/null
+        then
+            wget -O ~/Downloads/team-viewer.deb "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb";
+            sudo apt install ~/Downloads/team-viewer.deb -y;
+            rm ~/Downloads/team-viewer.deb;
+        else
+            echo "Team Viewer already installed!";
+        fi
+            break;;
         
         [Nn]* )
         break;;
@@ -916,13 +939,18 @@ done
 while true; do
     read -p "Would like to install AppImage (y/n)? " PROMPT
     case $PROMPT in
-        [Yy]* ) 
-        sudo add-apt-repository ppa:appimagelauncher-team/stable -y;
-        sudo apt-get update;
-        sudo apt-get install appimagelauncher -y;
-        #mkdir ~/Documents;
-        break;;
-        
+        [Yy]* )
+        if ! command -v AppImageLauncher &> /dev/null
+        then        
+            sudo add-apt-repository ppa:appimagelauncher-team/stable -y;
+            sudo apt-get update;
+            sudo apt-get install appimagelauncher -y;
+            #mkdir ~/Documents;
+        else
+            echo "AppImageLauncher already installed!";
+        fi	        
+            break;;
+                    
         [Nn]* )
         break;;
         

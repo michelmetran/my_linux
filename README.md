@@ -15,4 +15,14 @@ cd ~/Downloads \
 
 # Run Script
 bash ./setup/setup.sh
+bash ./setup/test.sh
+```
+
+<br>
+
+Garbage...
+
+```bash
+# Run Script
+bash ./setup/test.sh
 ```
