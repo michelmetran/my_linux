@@ -503,7 +503,7 @@ done
 # Chrome Driver
 # https://askubuntu.com/questions/1004947/how-do-i-use-the-chrome-driver-in-ubuntu-16-04
 while true; do
-    read -p "Would like to install Chromedriver (y/n)? " PROMPT
+    read -p "Would like to install ChromeDriver (y/n)? " PROMPT
     case $PROMPT in
     	[Yy]* )
         if ! command -v chromedriver &> /dev/null
@@ -521,6 +521,64 @@ while true; do
         echo "Please answer yes or no.";;
     esac
 done
+
+
+# NodeJS
+while true; do
+    read -p "Would like to install NodeJS (y/n)? " PROMPT
+    case $PROMPT in
+    	[Yy]* )
+        if ! command -v nodejs &> /dev/null
+        then
+            sudo apt install nodejs -y;
+        else
+            echo "NodeJS already installed!";
+        fi
+            break;;        
+        
+        [Nn]* )
+        break;;
+        
+        * )
+        echo "Please answer yes or no.";;
+    esac
+done
+
+
+
+
+
+# NPM
+while true; do
+    read -p "Would like to install NPM (y/n)? " PROMPT
+    case $PROMPT in
+    	[Yy]* )
+        if ! command -v npm &> /dev/null
+        then
+            sudo apt install npm -y;
+        else
+            echo "NPM already installed!";
+        fi
+            break;;        
+        
+        [Nn]* )
+        break;;
+        
+        * )
+        echo "Please answer yes or no.";;
+    esac
+done
+
+
+
+
+
+
+
+
+
+
+
 
 
 echo "---------------------------------------------"
