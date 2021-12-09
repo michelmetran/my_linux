@@ -49,3 +49,15 @@ To customize Nautilis and others
 ```bash
 bash ./setup/customization.sh
 ```
+
+<br>
+
+----
+
+### Databases
+
+To customize Nautilis and others
+
+```bash
+bash ./setup/databases.sh
+```

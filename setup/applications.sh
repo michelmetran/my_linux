@@ -878,6 +878,30 @@ while true; do
 done
 
 
+# Peek
+# https://askubuntu.com/questions/107726/how-to-create-animated-gif-images-of-a-screencast
+while true; do
+    read -p "Would like to install Peek (y/n)? " PROMPT
+    case $PROMPT in
+        [Yy]* )
+        if ! command -v peek &> /dev/null
+        then        
+            sudo apt-get update;
+            sudo apt-get install peek -y;
+        else
+            echo "Peek already installed!";
+        fi	        
+            break;;
+            
+        [Nn]* )
+        break;;
+        
+        * )
+        echo "Please answer yes or no.";;
+    esac
+done
+
+
 # AppImage
 # https://askubuntu.com/questions/1349951/how-do-i-install-appimagelauncher-in-ubuntu-21-04
 while true; do
