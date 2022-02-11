@@ -129,7 +129,7 @@ while true; do
         if ! command -v spotify &> /dev/null
         then
             sudo apt-get install curl -Y;
-            curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -;
+            curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add -;
             echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list;
             sudo apt-get update;
             sudo apt-get install spotify-client -y;
@@ -545,9 +545,6 @@ while true; do
 done
 
 
-
-
-
 # NPM
 while true; do
     read -p "Would like to install NPM (y/n)? " PROMPT
@@ -568,17 +565,6 @@ while true; do
         echo "Please answer yes or no.";;
     esac
 done
-
-
-
-
-
-
-
-
-
-
-
 
 
 echo "---------------------------------------------"

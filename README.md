@@ -20,7 +20,7 @@ cd ~/Downloads \
 
 ### Applications
 
-To install may applications
+To install my applications
 
 ```bash
 bash ./setup/applications.sh
@@ -56,7 +56,7 @@ bash ./setup/customization.sh
 
 ### Databases
 
-To customize Nautilis and others
+To install databases
 
 ```bash
 bash ./setup/databases.sh
