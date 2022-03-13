@@ -454,15 +454,16 @@ done
 
 
 # JetBrains ToolBox
+# https://thirddriver.medium.com/jetbrains-toolbox-the-best-way-to-install-intellij-idea-on-linux-53c1070cd03b
 while true; do
     read -p "Would like to install JetBrains ToolBox (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-        wget -O ~/Downloads/jetbrains.tar.gz "https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.22.10774.tar.gz";
-        tar -zxvf ~/Downloads/jetbrains.tar.gz;
-        #cd jetbrains-toolbox*;
-        ~/Downloads/jetbrains-toolbox;
-        rm ~/Downloads/jetbrains.tar.gz;
+        wget -O ~/Downloads/jetbrains-toolbox.tar.gz "https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.22.10970.tar.gz";
+        cd /opt/;
+        tar -zxvf ~/Downloads/jetbrains-toolbox.tar.gz;
+        jetbrains-toolbox/jetbrains-toolbox;
+        rm ~/Downloads/jetbrains-toolbox.tar.gz;
         break;;
         
         [Nn]* )
@@ -476,13 +477,14 @@ done
 
 # Firefox Driver (GeckoDriver)
 # https://askubuntu.com/questions/870530/how-to-install-geckodriver-in-ubuntu
+# https://github.com/mozilla/geckodriver
 while true; do
     read -p "Would like to install GeckoDriver (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
         if ! command -v geckodriver &> /dev/null
         then
-            wget -O ~/Downloads/geckodriver.tar.gz "https://github.com/mozilla/geckodriver/releases/download/v0.29.1/geckodriver-v0.29.1-linux64.tar.gz";
+            wget -O ~/Downloads/geckodriver.tar.gz "https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz";
             sudo sh -c 'tar -x geckodriver -zf geckodriver.tar.gz -O > /usr/bin/geckodriver';
             sudo chmod +x /usr/bin/geckodriver;
             rm ~/Downloads/geckodriver.tar.gz;
