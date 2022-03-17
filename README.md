@@ -23,7 +23,15 @@ cd ~/Downloads \
 To install my applications
 
 ```bash
-bash ./setup/applications.sh
+bash ./setup/apps_cloud.sh
+bash ./setup/apps_codes.sh
+bash ./setup/apps_comunicate.sh
+bash ./setup/apps_geo.sh
+bash ./setup/apps_internet.sh
+bash ./setup/apps_manutencao.sh
+bash ./setup/apps_media.sh
+bash ./setup/apps_office.sh
+bash ./setup/apps_remote_desktop.sh
 ```
 
 <br>
