@@ -35,30 +35,6 @@ while true; do
 done
 
 
-# TeamViewer
-# https://www.linuxbabe.com/ubuntu/install-teamviewer-ubuntu-18-04-lts
-while true; do
-    read -p "Would like to install TeamViewer (y/n)? " PROMPT
-    case $PROMPT in
-        [Yy]* ) 
-        if ! command -v teamviewer &> /dev/null
-        then
-            wget -O ~/Downloads/team-viewer.deb "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb";
-            sudo apt install ~/Downloads/team-viewer.deb -y;
-            rm ~/Downloads/team-viewer.deb;
-        else
-            echo "Team Viewer already installed!";
-        fi
-            break;;
-        
-        [Nn]* )
-        break;;
-        
-        * )
-        echo "Please answer yes or no.";;
-    esac
-done
-
 
 # Shutter
 while true; do
