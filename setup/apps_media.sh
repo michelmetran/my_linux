@@ -15,7 +15,7 @@ while true; do
         [Yy]* )
         if ! command -v spotify &> /dev/null
         then
-            sudo apt-get install curl -Y;
+            sudo apt-get install curl -y;
             curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add -;
             echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list;
             sudo apt-get update;
@@ -94,7 +94,6 @@ while true; do
         then
             sudo apt install ffmpeg -y;
             sudo add-apt-repository ppa:obsproject/obs-studio -y;
-            sudo apt-get update;
             sudo apt-get install obs-studio -y;
         else
             echo "Obs already installed!";

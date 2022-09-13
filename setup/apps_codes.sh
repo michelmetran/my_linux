@@ -114,7 +114,7 @@ while true; do
     read -p "Would like to install JetBrains ToolBox (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-        wget -O ~/Downloads/jetbrains-toolbox.tar.gz "https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.22.10970.tar.gz";
+        wget -O ~/Downloads/jetbrains-toolbox.tar.gz "https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.25.12627.tar.gz";
         cd /opt/;
         tar -zxvf ~/Downloads/jetbrains-toolbox.tar.gz;
         jetbrains-toolbox/jetbrains-toolbox;
@@ -139,10 +139,17 @@ while true; do
         [Yy]* )
         if ! command -v geckodriver &> /dev/null
         then
-            wget -O ~/Downloads/geckodriver.tar.gz "https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz";
-            sudo sh -c 'tar -x geckodriver -zf geckodriver.tar.gz -O > /usr/bin/geckodriver';
-            sudo chmod +x /usr/bin/geckodriver;
+            # Download
+            wget -O ~/Downloads/geckodriver.tar.gz "https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-linux64.tar.gz";
+
+            # Vai pra a pasta
+            cd /usr/local/bin;
+            
+            # 
+            sudo tar -xzvf ~/Downloads/geckodriver.tar.gz;
+            sudo chmod +x /usr/local/bin/geckodriver;
             rm ~/Downloads/geckodriver.tar.gz;
+            cd ~;
         else
             echo "Geckodriver already installed!";
         fi

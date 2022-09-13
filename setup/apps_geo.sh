@@ -21,8 +21,8 @@ while true; do
             wget -qO - https://qgis.org/downloads/qgis-2021.gpg.key | sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/qgis-archive.gpg --import;
             sudo chmod a+r /etc/apt/trusted.gpg.d/qgis-archive.gpg;
             echo "# QGIS" | sudo tee -a /etc/apt/sources.list;
-            echo "deb [ arch=amd64 ] https://qgis.org/ubuntu-ltr focal main" | sudo tee -a /etc/apt/sources.list;
-            echo "deb-src [ arch=amd64 ] https://qgis.org/ubuntu-ltr focal main" | sudo tee -a /etc/apt/sources.list;
+            echo "deb [ arch=amd64 ] https://qgis.org/ubuntu-ltr jammy main" | sudo tee -a /etc/apt/sources.list;
+            echo "deb-src [ arch=amd64 ] https://qgis.org/ubuntu-ltr jammy main" | sudo tee -a /etc/apt/sources.list;
             sudo apt-get update;
             sudo apt-get install qgis qgis-plugin-grass -y;
         else
@@ -38,6 +38,8 @@ while true; do
     esac
 done
 
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D155B8E6A419C5BE
 
 
 # Google Earth

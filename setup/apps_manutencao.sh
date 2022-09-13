@@ -43,7 +43,7 @@ while true; do
         [Yy]* )
         if ! command -v shutter &> /dev/null
         then        
-            sudo add-apt-repository ppa:shutter/ppa -y;
+            # sudo add-apt-repository ppa:shutter/ppa -y;
             sudo apt-get update;
             sudo apt-get install shutter -y;
         else
