@@ -114,10 +114,10 @@ while true; do
     read -p "Would like to install JetBrains ToolBox (y/n)? " PROMPT
     case $PROMPT in
         [Yy]* )
-        wget -O ~/Downloads/jetbrains-toolbox.tar.gz "https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.25.12627.tar.gz";
+        wget -O ~/Downloads/jetbrains-toolbox.tar.gz "https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.27.2.13801.tar.gz";
         cd /opt/;
         tar -zxvf ~/Downloads/jetbrains-toolbox.tar.gz;
-        mv jetbrains-toolbox-1.25.12627/ jetbrains-toolbox/;
+        mv jetbrains-toolbox-1.27.2.13801/ jetbrains-toolbox/;
         jetbrains-toolbox/jetbrains-toolbox;
         rm ~/Downloads/jetbrains-toolbox.tar.gz;
         break;;
